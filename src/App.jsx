@@ -68,6 +68,7 @@ export default function App() {
   const [openFaq, setOpenFaq] = useState(null)
   const [darkMode, setDarkMode] = useState(true)
   const [openDropdown, setOpenDropdown] = useState(null)
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const fileInputRef = useRef(null)
 
   // --- Core AI convert ---
@@ -180,7 +181,7 @@ Rules:
   }
 
   return (
-    <div className={`app-root ${darkMode ? 'dark' : 'light'}`} onClick={() => setOpenDropdown(null)}>
+    <div className={`app-root ${darkMode ? 'dark' : 'light'}`} onClick={() => { setOpenDropdown(null); setMobileMenuOpen(false); }}>
 
       {/* ========== NAVIGATION ========== */}
       <nav className="top-nav">
@@ -275,8 +276,81 @@ Rules:
             <button className="theme-toggle" onClick={() => setDarkMode(!darkMode)} title="Toggle theme">
               {darkMode ? '☀️' : '🌙'}
             </button>
+
+            {/* Hamburger Button */}
+            <button 
+              className={`hamburger-btn ${mobileMenuOpen ? 'open' : ''}`} 
+              onClick={(e) => { e.stopPropagation(); setMobileMenuOpen(!mobileMenuOpen); }} 
+              title="Toggle menu"
+            >
+              <div className="bar1"></div>
+              <div className="bar2"></div>
+              <div className="bar3"></div>
+            </button>
           </div>
         </div>
+
+        {/* Mobile Dropdown Menu */}
+        {mobileMenuOpen && (
+          <div className="mobile-menu" onClick={e => e.stopPropagation()}>
+            {/* Convert Dropdown */}
+            <div className="mobile-menu-item-wrap">
+              <div className="mobile-menu-header" onClick={() => toggleDropdown('convert')}>
+                <span>Convert</span>
+                <span className={`chevron ${openDropdown === 'convert' ? 'open' : ''}`}>▾</span>
+              </div>
+              {openDropdown === 'convert' && (
+                <div className="mobile-submenu">
+                  <div className="mobile-submenu-item active-item" onClick={() => { setMobileMenuOpen(false); setOpenDropdown(null); }}>
+                    <span>📊 Data Structurer</span>
+                  </div>
+                  <div className="mobile-submenu-item coming-soon">
+                    <span>📄 CSV Formatter (Soon)</span>
+                  </div>
+                  <div className="mobile-submenu-item coming-soon">
+                    <span>🔄 JSON Converter (Soon)</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Compress Dropdown */}
+            <div className="mobile-menu-item-wrap">
+              <div className="mobile-menu-header" onClick={() => toggleDropdown('compress')}>
+                <span>Compress</span>
+                <span className={`chevron ${openDropdown === 'compress' ? 'open' : ''}`}>▾</span>
+              </div>
+              {openDropdown === 'compress' && (
+                <div className="mobile-submenu">
+                  <div className="mobile-submenu-item coming-soon">
+                    <span>🗜️ Data Compressor (Soon)</span>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Tools Dropdown */}
+            <div className="mobile-menu-item-wrap">
+              <div className="mobile-menu-header" onClick={() => toggleDropdown('tools')}>
+                <span>Tools</span>
+                <span className={`chevron ${openDropdown === 'tools' ? 'open' : ''}`}>▾</span>
+              </div>
+              {openDropdown === 'tools' && (
+                <div className="mobile-submenu">
+                  <div className="mobile-submenu-item active-item" onClick={() => { setMobileMenuOpen(false); setOpenDropdown(null); }}>
+                    <span>🧠 AI Data Structurer</span>
+                  </div>
+                  <div className="mobile-submenu-item coming-soon">
+                    <span>✨ AI Summarizer (Soon)</span>
+                  </div>
+                  <div className="mobile-submenu-item coming-soon">
+                    <span>🔍 AI Data Extractor (Soon)</span>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* ========== MAIN CONTENT ========== */}
