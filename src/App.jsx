@@ -544,7 +544,6 @@ Rules:
                 <div className="safety-text">
                   <h2>Your Data is Safe — Here's How We Protect It</h2>
                   <p>When you use our free data structuring tool, your privacy is guaranteed. We use SSL/TLS encryption, process all data in real-time without storing it, and require zero account creation. Your unstructured text is converted to a structured table and immediately discarded — never logged, never sold.</p>
-                  <button className="safety-learn-btn">Learn more about our commitment to security</button>
                 </div>
                 <div className="safety-badges">
                   <div className="safety-badge">
