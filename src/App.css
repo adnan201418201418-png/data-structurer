@@ -1059,6 +1059,7 @@ tr:hover td {
   grid-column: 2;
   grid-row: 1;
   display: flex;
+  justify-content: center;
   gap: 32px;
   padding: 0 16px 24px;
 }
