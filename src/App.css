@@ -1,5 +1,5 @@
 /* ===================================
-   CLARIO — Complete Stylesheet
+   CONVERTGRIDS — Complete Stylesheet
    Dark/Light Theme + Full Layout
    =================================== */
 
@@ -1073,10 +1073,12 @@ tr:hover td {
 
 .footer-bottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 12px;
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.06);
+  text-align: center;
 }
 
 .footer-logo {
@@ -1105,9 +1107,135 @@ tr:hover td {
   font-size: 0.85rem;
   color: #64748b;
   text-align: center;
-  max-width: 500px;
+  max-width: 560px;
   line-height: 1.5;
-  margin: 0 16px;
+}
+
+
+/* ==========================================
+   CONTENT PAGES (About, Privacy, Terms)
+   ========================================== */
+.content-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: 60vh;
+}
+
+.content-page-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 0 64px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  transition: all 0.2s;
+}
+.back-link:hover {
+  background: rgba(99, 102, 241, 0.08);
+  color: var(--primary-light);
+}
+
+.page-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 16px;
+  letter-spacing: -0.03em;
+}
+
+.page-intro {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 40px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-section {
+  margin-bottom: 40px;
+}
+
+.page-section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.page-section p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.page-section ul {
+  margin: 12px 0 16px 24px;
+  list-style: disc;
+}
+
+.page-section ul li {
+  font-size: 1.02rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 6px;
+}
+
+.page-section ul li strong {
+  color: var(--text);
+}
+
+/* Values Grid (About Page) */
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.value-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 28px;
+  transition: all 0.25s;
+}
+.value-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.value-icon {
+  font-size: 1.8rem;
+  margin-bottom: 14px;
+}
+
+.value-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
 }
 
 
@@ -1169,15 +1297,17 @@ tr:hover td {
     justify-content: center;
   }
 
-  .footer-bottom {
-    flex-direction: column;
-    gap: 12px;
-    text-align: center;
-  }
-
   .footer-links {
     flex-wrap: wrap;
     gap: 16px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
   }
 }
 
