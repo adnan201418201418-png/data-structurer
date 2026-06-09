@@ -1073,12 +1073,10 @@ tr:hover td {
 
 .footer-bottom {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  gap: 12px;
   padding-top: 20px;
   border-top: 1px solid rgba(255,255,255,0.06);
-  text-align: center;
 }
 
 .footer-logo {
@@ -1109,6 +1107,7 @@ tr:hover td {
   text-align: center;
   max-width: 560px;
   line-height: 1.5;
+  margin: 0 16px;
 }
 
 
@@ -1295,6 +1294,12 @@ tr:hover td {
   .tool-convert-btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
   }
 
   .footer-links {
