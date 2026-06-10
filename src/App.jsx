@@ -738,8 +738,7 @@ Rules:
                 </div>
               )}
 
-              {/* Max file notice */}
-              <p className="tool-notice">Max file size 1MB. By proceeding, you agree to our <a href="#" onClick={(e) => { e.preventDefault(); navigateTo('terms'); }}>Terms of Use</a>.</p>
+
 
               {/* ========== HOW TO CONVERT ========== */}
               <section className="how-section">
